@@ -1,4 +1,30 @@
 <p>home works!</p>
 <h1 class="text-3xl font-bold underline">
     Hello world!
-  </h1>
+</h1>
+<form action="">
+    <h1>job</h1>
+    <label for="">Jam</label>
+    <input class="shadow border" type="text" placeholder="00" [(ngModel)]="jobHours" [ngModelOptions]="{standalone: true}" pattern="\d{2}" maxlength="2">
+    <label for="">Menit</label>
+    <input class="shadow appearance-none border" type="text" placeholder="00" [(ngModel)]="jobMinute" [ngModelOptions]="{standalone: true}" pattern="\d{2}" maxlength="2">
+    <label for="">Detik</label>
+    <input class="shadow appearance-none border " type="text" placeholder="00" [(ngModel)]="jobSecond" [ngModelOptions]="{standalone: true}" pattern="\d{2}" maxlength="2">
+
+    <h1>monitor</h1>
+    <label for="">Jam</label>
+    <input class="shadow border" type="text" placeholder="00" [(ngModel)]="monitorHours" [ngModelOptions]="{standalone: true}" pattern="\d{2}" maxlength="2">
+    <label for="">Menit</label>
+    <input class="shadow appearance-none border" type="text" placeholder="00" [(ngModel)]="monitorMinute" [ngModelOptions]="{standalone: true}" pattern="\d{2}" maxlength="2">
+    <label for="">Detik</label>
+    <input class="shadow appearance-none border " type="text" placeholder="00" [(ngModel)]="monitorSecond" [ngModelOptions]="{standalone: true}" pattern="\d{2}" maxlength="2">
+
+    <br>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" (click)="printJobStart()">
+    Hitung
+  </button>
+</form>
+job
+<h1>{{jobStart}}</h1>
+<h1>{{monitorStart}}</h1>
+<!-- <h1>{{jobStartUnix}}</h1> -->
