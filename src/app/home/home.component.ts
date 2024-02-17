@@ -1,44 +1,53 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { InputTimeComponent } from '../components/input-time/input-time.component';
+import { CommonModule } from '@angular/common';
+import { start } from 'repl';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, InputTimeComponent, CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
-
   currentDate: string;
+
+  time = {
+    startDate: '',
+    hours: '',
+    minutes: '',
+    seconds: '',
+  };
+
+  job = { ...this.time };
+  monitor = { ...this.time };
+  monitorDuration = { ...this.time };
+  monitorFilter = { ...this.time };
 
   constructor() {
     const date = new Date();
     this.currentDate = date.toISOString().slice(0, 10);
   }
 
-  jobStart = '';
-  jobStartUnix = 0;
-  jobHours = '';
-  jobMinute = '';
-  jobSecond = '';
-
-  monitorStart = '';
-  monitorHours = '';
-  monitorMinute = '';
-  monitorSecond = '';
-
   printJobStart() {
-    this.jobHours = this.jobHours.trim() ? this.jobHours : '00';
-    this.jobMinute = this.jobMinute.trim() ? this.jobMinute : '00';
-    this.jobSecond = this.jobSecond.trim() ? this.jobSecond : '00';
+    this.job.hours = this.setToDoubleZeroIfEmpty(this.job.hours);
+    this.job.minutes = this.setToDoubleZeroIfEmpty(this.job.minutes);
+    this.job.seconds = this.setToDoubleZeroIfEmpty(this.job.seconds);
 
-    this.monitorHours = this.monitorHours.trim() ? this.monitorHours : '00';
-    this.monitorMinute = this.monitorMinute.trim() ? this.monitorMinute : '00';
-    this.monitorSecond = this.monitorSecond.trim() ? this.monitorSecond : '00';
+    this.monitor.hours = this.setToDoubleZeroIfEmpty(this.monitor.hours);
+    this.monitor.minutes = this.setToDoubleZeroIfEmpty(this.monitor.minutes);
+    this.monitor.seconds = this.setToDoubleZeroIfEmpty(this.monitor.seconds);
 
-    this.jobStart = `${this.currentDate} ${this.jobHours}:${this.jobMinute}:${this.jobSecond}`;
-    this.monitorStart = `${this.currentDate} ${this.monitorHours}:${this.monitorMinute}:${this.monitorSecond}`;
+    this.job.startDate = `${this.currentDate} ${this.job.hours}:${this.job.minutes}:${this.job.seconds}`;
+    this.monitor.startDate = `${this.currentDate} ${this.monitor.hours}:${this.monitor.minutes}:${this.monitor.seconds}`;
     // this.jobStartUnix = Math.floor(new Date(this.jobStart).getTime() / 1000);
+
+    this.job = { ...this.time, startDate: this.job.startDate };
+  }
+
+  setToDoubleZeroIfEmpty(value: string): string {
+    return value.trim() ? value : '00';
   }
 }
