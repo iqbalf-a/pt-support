@@ -1,25 +1,45 @@
 <p>home works!</p>
 <h1 class="text-3xl font-bold underline">Hello world!</h1>
+<input id="appt-time" type="time" name="appt-time" step="2" />
 <form action="">
-  <h1>job</h1>
-  <app-input-time [(ngModelValue)]="job.hours" labelText="Jam"></app-input-time>
-  <app-input-time
-    [(ngModelValue)]="job.minutes"
-    labelText="Menit"
-  ></app-input-time>
-  <app-input-time
-    [(ngModelValue)]="job.seconds"
-    labelText="Detik"
-  ></app-input-time>
+    <h1>start job</h1>
+    <app-input-time [(ngModelValue)]="startJob.hours" labelText="Jam"></app-input-time>
+    <app-input-time [(ngModelValue)]="startJob.minutes" labelText="Menit"></app-input-time>
+    <app-input-time [(ngModelValue)]="startJob.seconds" labelText="Detik"></app-input-time>
 
-  <br />
-  <button
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    type="button"
-    (click)="printJobStart()"
-  >
+    <h1>end job</h1>
+    <app-input-time [(ngModelValue)]="endJob.hours" labelText="Jam"></app-input-time>
+    <app-input-time [(ngModelValue)]="endJob.minutes" labelText="Menit"></app-input-time>
+    <app-input-time [(ngModelValue)]="endJob.seconds" labelText="Detik"></app-input-time>
+
+    <h1>monitor</h1>
+    <app-input-time [(ngModelValue)]="monitor.hours" labelText="Jam"></app-input-time>
+    <app-input-time [(ngModelValue)]="monitor.minutes" labelText="Menit"></app-input-time>
+    <app-input-time [(ngModelValue)]="monitor.seconds" labelText="Detik"></app-input-time>
+
+    <h1>durasi job</h1>
+    <app-input-time [(ngModelValue)]="monitorDuration.hours" labelText="Jam"></app-input-time>
+    <app-input-time [(ngModelValue)]="monitorDuration.minutes" labelText="Menit"></app-input-time>
+    <app-input-time [(ngModelValue)]="monitorDuration.seconds" labelText="Detik"></app-input-time>
+
+
+
+    <br />
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" (click)="printJobStart()">
     Hitung
   </button>
 </form>
 
-<h1>{{ job.startDate }}</h1>
+<h1>start job {{ startJob.startDate }}</h1>
+<h1>start monitor {{ monitor.startDate }}</h1>
+<h1>durasi job {{ monitorDuration.startDate }}</h1>
+<h1>{{currentDate}}</h1>
+
+<h1>unix start job {{ startJob.unixTimestamp }}</h1>
+<h1>unix start monitor {{ monitor.unixTimestamp }}</h1>
+<h1> durasi {{ monitorDuration.unixTimestamp }}</h1>
+
+
+<h1>start filter {{secondsToTime(startFilterSeconds)}}</h1>
+<h1>end filter {{secondsToTime(endFilterSeconds)}}</h1>
+<h1>durasi filter {{secondsToTime(durationFilterSeconds)}}</h1>
