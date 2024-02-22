@@ -1,0 +1,18 @@
+<p>encode-base64-file works!</p>
+<div>
+    <input type="file" (change)="onFileChange($event)" />
+</div>
+
+
+<div *ngIf="encodedBase64">
+    <!-- Konten yang ditampilkan jika encodedBase64 terdefinisi -->
+    <h3>Encoded Base64:</h3>
+    encode all
+    <textarea [value]="encodedBase64" rows="10" cols="50"></textarea>
+    <br> encode only base64 value
+    <textarea [value]="encodedBase64Value" rows="10" cols="50"></textarea>
+</div>
+<div *ngIf="!encodedBase64">
+    <!-- Konten yang ditampilkan jika encodedBase64 tidak terdefinisi -->
+    tidak ada
+</div>
