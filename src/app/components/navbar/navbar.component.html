@@ -1,11 +1,9 @@
 <nav class="shadow-sm">
     <div class="flex justify-center gap-12 font-medium">
-        <a [class.activeLink]="isActive('/')" routerLink="/">Home</a>
         <a [ngClass]="{ activeLink: isActive('/'), inactiveLink: !isActive('/') }" routerLink="/">Home</a>
-
-        <a [class.activeLink]="isActive('/encode-base64')" routerLink="/encode-base64">Encode Base64</a>
-        <a [class.activeLink]="isActive('/decode-base64')" routerLink="/decode-base64">Decode Base64</a>
-        <a [class.activeLink]="isActive('/encode-base64-file')" routerLink="/encode-base64-file">Encode Base64 (File)</a>
+        <a [ngClass]="{ activeLink: isActive('/encode-base64'), inactiveLink: !isActive('/encode-base64') }" routerLink="/encode-base64">Encode Base64</a>
+        <a [ngClass]="{ activeLink: isActive('/decode-base64'), inactiveLink: !isActive('/decode-base64') }" routerLink="/decode-base64">Decode Base64</a>
+        <a [ngClass]="{ activeLink: isActive('/encode-base64-file'), inactiveLink: !isActive('/encode-base64-file') }" routerLink="/encode-base64-file">Encode Base64 (File)</a>
     </div>
 </nav>
 <router-outlet />

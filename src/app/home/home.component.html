@@ -1,77 +1,73 @@
 <main>
-
-
     <div class="border rounded-lg justify-center flex py-8 font-poppins">
-        <div>
-            <h1 class="text-2xl font-bold">Hello world!</h1>
-            <div class="flex py-6">
-                <form action="" class="">
-                    <label class="text-gray-400 text-sm">
-                        <input type="checkbox" [(ngModel)]="sameDate" [ngModelOptions]="{standalone: true}"
-                            (change)="updateJobEndDate()"> Samakan Tanggal Job Start dan End
-                    </label>
-                    <div class="flex mb-4">
-                        <div class="flex flex-col mr-8">
-                            <h1 class="font-bold">Job Start*</h1>
-                            <label for="">
-                                <p class="text-sm text-gray-400 mt-2">Tanggal</p>
-                                <input id="job-start-date" type="date" class="border px-4 py-2 rounded-lg text-lg mt-1"
-                                    name="job-start-date" [(ngModel)]="jobStart.date" (change)="updateJobEndDate()" />
-                            </label>
-                            <label for="">
-                                <p class="text-sm text-gray-400 mt-2">Jam</p>
-                                <input id="job-start-time" type="time" class="border px-4 py-2 rounded-lg text-lg mt-1"
-                                    name="job-start-time" step="2" [(ngModel)]="jobStart.timeStart" />
-                            </label>
-                        </div>
-
-                        <div class="flex flex-col">
-                            <h1 class="font-bold">Job End*</h1>
-                            <label for="">
-                                <p class="text-sm text-gray-400 mt-2">Tanggal</p>
-                                <input id="job-end-date" type="date" class="border px-4 py-2 rounded-lg text-lg mt-1"
-                                    name="job-end-date" [(ngModel)]="jobEnd.date" [disabled]="sameDate" />
-                            </label>
-                            <label for="">
-                                <p class="text-sm text-gray-400 mt-2">Jam</p>
-                                <input id="job-end-time" type="time" class="border px-4 py-2 rounded-lg text-lg mt-1"
-                                    name="job-end-time" step="2" [(ngModel)]="jobEnd.timeStart" />
-                            </label>
-                        </div>
-
-                    </div>
-                    <div class="flex flex-col">
-                        <h1 class="font-bold">Monitor Start*</h1>
+        <h1 class="text-2xl font-bold">Hello world!</h1>
+        <div class="flex py-6">
+            <form action="" class="">
+                <label class="text-gray-400 text-sm">
+                    <input type="checkbox" [(ngModel)]="sameDate" [ngModelOptions]="{standalone: true}"
+                        (change)="updateJobEndDate()"> Samakan Tanggal Job Start dan End
+                </label>
+                <div class="flex mb-4">
+                    <div class="flex flex-col mr-8">
+                        <h1 class="font-bold">Job Start*</h1>
                         <label for="">
                             <p class="text-sm text-gray-400 mt-2">Tanggal</p>
-                            <input id="monitor-start-date" type="date" class="border px-4 py-2 rounded-lg text-lg mt-1"
-                                name="monitor-start-time" [(ngModel)]="monitorStart.date" />
+                            <input id="job-start-date" type="date" class="border px-4 py-2 rounded-lg text-lg mt-1"
+                                name="job-start-date" [(ngModel)]="jobStart.date" (change)="updateJobEndDate()" />
                         </label>
                         <label for="">
                             <p class="text-sm text-gray-400 mt-2">Jam</p>
-                            <input id="monitor-start-time" type="time" class="border px-4 py-2 rounded-lg text-lg mt-1"
-                                name="monitor-start-time" step="2" [(ngModel)]="monitorStart.timeStart" />
+                            <input id="job-start-time" type="time" class="border px-4 py-2 rounded-lg text-lg mt-1"
+                                name="job-start-time" step="2" [(ngModel)]="jobStart.timeStart" />
                         </label>
                     </div>
 
-                    <div class="justify-center flex mt-8">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline" type="button" (click)="calculate()">Pencet</button>
+                    <div class="flex flex-col">
+                        <h1 class="font-bold">Job End*</h1>
+                        <label for="">
+                            <p class="text-sm text-gray-400 mt-2">Tanggal</p>
+                            <input id="job-end-date" type="date" class="border px-4 py-2 rounded-lg text-lg mt-1"
+                                name="job-end-date" [(ngModel)]="jobEnd.date" [disabled]="sameDate" />
+                        </label>
+                        <label for="">
+                            <p class="text-sm text-gray-400 mt-2">Jam</p>
+                            <input id="job-end-time" type="time" class="border px-4 py-2 rounded-lg text-lg mt-1"
+                                name="job-end-time" step="2" [(ngModel)]="jobEnd.timeStart" />
+                        </label>
                     </div>
-                </form>
 
-                <div class="bg-blue-500 px-4 py-2 rounded-lg ml-8 w-48">
-                    <div class="flex flex-col text-white mb-2">
-                        <p class="text-sm">Filter Start </p>
-                        <p class="font-bold text-lg">{{filterStart.timeResult}}</p>
-                    </div>
-                    <div class="flex flex-col text-white mb-2">
-                        <p class="text-sm">Filter End </p>
-                        <p class="font-bold text-lg">{{filterEnd.timeResult}}</p>
-                    </div>
-                    <div class="flex flex-col text-white mb-2">
-                        <p class="text-sm">Durasi Job </p>
-                        <p class="text-lg">{{secondsToTime(filterDurationSeconds)}}</p>
-                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <h1 class="font-bold">Monitor Start*</h1>
+                    <label for="">
+                        <p class="text-sm text-gray-400 mt-2">Tanggal</p>
+                        <input id="monitor-start-date" type="date" class="border px-4 py-2 rounded-lg text-lg mt-1"
+                            name="monitor-start-time" [(ngModel)]="monitorStart.date" />
+                    </label>
+                    <label for="">
+                        <p class="text-sm text-gray-400 mt-2">Jam</p>
+                        <input id="monitor-start-time" type="time" class="border px-4 py-2 rounded-lg text-lg mt-1"
+                            name="monitor-start-time" step="2" [(ngModel)]="monitorStart.timeStart" />
+                    </label>
+                </div>
+
+                <div class="justify-center flex mt-8">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline" type="button" (click)="calculate()">Pencet</button>
+                </div>
+            </form>
+
+            <div class="bg-blue-500 px-4 py-2 rounded-lg ml-8 w-48">
+                <div class="flex flex-col text-white mb-2">
+                    <p class="text-sm">Filter Start </p>
+                    <p class="font-bold text-lg">{{filterStart.timeResult}}</p>
+                </div>
+                <div class="flex flex-col text-white mb-2">
+                    <p class="text-sm">Filter End </p>
+                    <p class="font-bold text-lg">{{filterEnd.timeResult}}</p>
+                </div>
+                <div class="flex flex-col text-white mb-2">
+                    <p class="text-sm">Durasi Job </p>
+                    <p class="text-lg">{{secondsToTime(filterDurationSeconds)}}</p>
                 </div>
             </div>
         </div>
