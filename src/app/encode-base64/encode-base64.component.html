@@ -1,0 +1,15 @@
+<main>
+    <div class="flex justify-center mt-4">
+        <div class="flex-col w-2/4">
+            <div class="flex justify-center">
+                <textarea class="border w-full h-64 p-4 rounded-lg resize" placeholder="Masukkan teks" [(ngModel)]="inputText"></textarea>
+            </div>
+            <div class="flex justify-center mt-4">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline" (click)="generate()">Encode</button>
+            </div>
+            <div class="flex justify-center mt-4 h-64">
+                <textarea class="border w-full p-4 rounded-lg" [value]="outputText" disabled></textarea>
+            </div>
+        </div>
+    </div>
+</main>

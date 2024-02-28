@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.activeLink {
+    @apply border-b-2 border-blue-600 pb-3;
+}
+
+.inactiveLink {
+    @apply text-gray-500
+}
+
+
+/* .activeLink:hover {
+    @apply border-gray-400
+} */
