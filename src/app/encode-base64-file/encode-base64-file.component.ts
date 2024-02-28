@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-encode-base64-file',
@@ -13,8 +14,9 @@ export class EncodeBase64FileComponent {
   fileToEncode!: File;
   encodedBase64: string | null = null;
   encodedBase64Value: string | null = null;
+  showAlert: boolean = false; // New variable to control alert visibility
 
-  constructor() { }
+  constructor(private clipboard: Clipboard) { }
 
   onFileChange(event: any) {
     if (event.target.files && event.target.files.length) {
@@ -30,6 +32,26 @@ export class EncodeBase64FileComponent {
       };
 
       reader.readAsDataURL(file);
+    }
+  }
+
+  copyEncodedBase64ToClipboard() {
+    if (this.encodedBase64) {
+      this.clipboard.copy(this.encodedBase64);
+      this.showAlert = true; // Show alert when copied
+      setTimeout(() => {
+        this.showAlert = false; // Hide alert after 3 seconds
+      }, 3000);
+    }
+  }
+
+  copyEncodedBase64ValueToClipboard() {
+    if (this.encodedBase64Value) {
+      this.clipboard.copy(this.encodedBase64Value);
+      this.showAlert = true; // Show alert when copied
+      setTimeout(() => {
+        this.showAlert = false; // Hide alert after 3 seconds
+      }, 3000);
     }
   }
 }
