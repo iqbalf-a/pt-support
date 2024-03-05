@@ -1,0 +1,24 @@
+<p class="">summary works!</p>
+
+<button (click)="isResponsetimeAndIsUtilizationChange()">Response time & Error Rate</button>
+<button (click)="isResponsetimeAndIsUtilizationChange()">CPU & Memory util</button>
+
+<div *ngIf="isResponseTime">
+    <h1>Response time & Error rate</h1>
+    <div>
+        <textarea name="" id="" cols="100" rows="10" [(ngModel)]="inputText"></textarea>
+        <button (click)="tampilkan()">tampilkan</button>
+        <pre>{{outputResponseTime}}</pre>
+        <pre>{{outputErrorRate}}</pre>
+    </div>
+</div>
+
+<div *ngIf="isUtilization">
+    <h1>CPU & Memory utilization</h1>
+    <div>
+        <textarea name="" id="" cols="100" rows="10" [(ngModel)]="inputUtilization"></textarea>
+        <button (click)="gas()">tampilkan cpu</button>
+        <pre>{{outputCpu}}</pre>
+        <pre>{{outputMemory}}</pre>
+    </div>
+</div>
