@@ -1,0 +1,52 @@
+<main class="py-4">
+    <div class="flex justify-center gap-8">
+        <div class="flex justify-center mt-4">
+            <button [ngClass]="getResponseTimeButtonClass()" (click)="toggleResponseTime()">Response Time & Error
+                Rate</button>
+        </div>
+        <div class="flex justify-center mt-4">
+            <button [ngClass]="getUtilizationButtonClass()" (click)="toggleUtilization()">CPU & Memory
+                Utilization</button>
+        </div>
+    </div>
+
+    <div *ngIf="isResponseTime" class="flex justify-center mt-4">
+        <div class="w-2/3 mt-4">
+            <p class="font-semibold">Response time & Error rate</p>
+            <div class="mt-4 flex flex-col">
+                <textarea class="border w-full h-64 rounded-md p-4" [(ngModel)]="inputResponseTime" placeholder="Masukkan teks"></textarea>
+                <div class="flex justify-center gap-4">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="proccessResponseTime()">Proses</button>
+                    <button class="border-2 border-gray-500 text-gray-600 font-semibold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="resetResponseTime()">Reset</button>
+                </div>
+                <pre class="border p-4 rounded-md mt-4 bg-gray-100">{{outputResponseTime}}</pre>
+                <pre class="border p-4 rounded-md mt-4 bg-gray-100">{{outputErrorRate}}</pre>
+                <div class="mt-4">
+                    <p>Note: </p>
+                    <p class="font-semibold">Contoh value yang dicopy untuk response time dan error rate (kolom yang berwarna kuning)</p>
+                    <img class="rounded-md border-2 border-black mt-4" src="assets/responsetime-example.PNG" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="isUtilization" class="flex justify-center mt-4">
+        <div class="w-2/3 mt-4">
+            <p class="font-semibold">CPU & Memory utilization</p>
+            <div class="mt-4 flex flex-col">
+                <textarea class="border w-full h-64 rounded-md p-4" [(ngModel)]="inputUtilization" placeholder="Masukkan teks"></textarea>
+                <div class="flex justify-center gap-4">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="proccessUtilization()">Proses</button>
+                    <button class="border-2 border-gray-500 text-gray-600 font-semibold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="resetUtilization()">Reset</button>
+                </div>
+                <pre class="border p-4 rounded-md mt-4 bg-gray-100">{{outputCpu}}</pre>
+                <pre class="border p-4 rounded-md mt-4 bg-gray-100">{{outputMemory}}</pre>
+                <div class="mt-4">
+                    <p>Note: </p>
+                    <p class="font-semibold">Contoh value yang dicopy untuk Utilization (kolom yang berwarna kuning)</p>
+                    <img class="rounded-md border-2 border-black mt-4" src="assets/utilization-example.PNG" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

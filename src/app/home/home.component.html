@@ -1,5 +1,5 @@
-<main>
-    <div class="border rounded-lg justify-center flex py-8 font-poppins">
+<main class="py-4">
+    <div class="rounded-lg justify-center flex ">
         <div class="flex py-6">
             <form action="" class="">
                 <label class="text-gray-400 text-sm">
@@ -7,7 +7,7 @@
                         (change)="updateJobEndDate()"> Samakan Tanggal Job Start dan End
                 </label>
                 <div class="flex mb-4">
-                    <div class="flex flex-col mr-8">
+                    <div class="flex flex-col mr-16">
                         <h1 class="font-bold">Job Start*</h1>
                         <label for="">
                             <p class="text-sm text-gray-400 mt-2">Tanggal</p>
@@ -51,22 +51,25 @@
                 </div>
 
                 <div class="justify-center flex mt-8">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline" type="button" (click)="calculate()">Pencet</button>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline" type="button" (click)="calculate()">Hitung</button>
                 </div>
             </form>
 
-            <div class="bg-blue-500 px-4 py-2 rounded-lg ml-8 w-48">
-                <div class="flex flex-col text-white mb-2">
-                    <p class="text-sm">Filter Start </p>
-                    <p class="font-bold text-lg">{{filterStart.timeResult}}</p>
-                </div>
-                <div class="flex flex-col text-white mb-2">
-                    <p class="text-sm">Filter End </p>
-                    <p class="font-bold text-lg">{{filterEnd.timeResult}}</p>
-                </div>
-                <div class="flex flex-col text-white mb-2">
-                    <p class="text-sm">Durasi Job </p>
-                    <p class="text-lg">{{secondsToTime(filterDurationSeconds)}}</p>
+            <div class="w-80">
+                <div class="bg-gray-200 p-4 rounded-lg ml-16">
+                    <p class=" font-semibold">Hasil: </p>
+                    <div class="flex flex-col mb-4">
+                        <p class="text-sm">Filter Start </p>
+                        <p class="font-semibold text-lg">{{filterStart.timeResult}}</p>
+                    </div>
+                    <div class="flex flex-col mb-4">
+                        <p class="text-sm">Filter End </p>
+                        <p class="font-semibold text-lg">{{filterEnd.timeResult}}</p>
+                    </div>
+                    <div class="flex flex-col  mb-2">
+                        <p class="text-sm">Durasi Job </p>
+                        <p class="text-lg">{{secondsToTime(filterDurationSeconds)}}</p>
+                    </div>
                 </div>
             </div>
         </div>

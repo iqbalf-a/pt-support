@@ -4,6 +4,7 @@ import { InputTimeComponent } from './components/input-time/input-time.component
 import { EncodeBase64Component } from './encode-base64/encode-base64.component';
 import { DecodeBase64Component } from './decode-base64/decode-base64.component';
 import { EncodeBase64FileComponent } from './encode-base64-file/encode-base64-file.component';
+import { SummaryComponent } from './summary/summary.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path: 'encode-base64-file',
         component: EncodeBase64FileComponent
-    }
+    },
+    {
+        path: 'summary',
+        component: SummaryComponent
+    },
 ];

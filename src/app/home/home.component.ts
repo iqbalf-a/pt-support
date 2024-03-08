@@ -72,7 +72,7 @@ export class HomeComponent {
   calculate() {
 
     if ([this.jobStart.date, this.jobStart.timeStart, this.jobEnd.date, this.jobEnd.timeStart, this.monitorStart.date, this.monitorStart.timeStart].some(value => value === '')) {
-      alert("Ada yang kosong maniss");
+      alert("Ada yang kosong ");
       return;
     }
 
