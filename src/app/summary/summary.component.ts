@@ -25,7 +25,7 @@ interface SummaryUtilization {
 export class SummaryComponent {
   isResponseTime: boolean;
   isUtilization: boolean;
-  inputText: string;
+  inputResponseTime: string;
   outputText: string;
   outputResponseTime: string;
   outputErrorRate: string;
@@ -36,7 +36,7 @@ export class SummaryComponent {
   constructor() {
     this.isResponseTime = true;
     this.isUtilization = false;
-    this.inputText = '';
+    this.inputResponseTime = '';
     this.outputText = '';
     this.outputResponseTime = 'Highest Avg. Response Time: \n'
     this.outputErrorRate = 'Highest Error Rate: \n'
@@ -46,8 +46,8 @@ export class SummaryComponent {
     this.inputUtilization = '';
   }
 
-  tampilkan() {
-    const lines = this.inputText.split('\n');
+  proccessResponseTime() {
+    const lines = this.inputResponseTime.split('\n');
     const results: Summary[] = [];
 
     for (let line of lines) {
@@ -68,7 +68,7 @@ export class SummaryComponent {
 
   }
 
-  gas() {
+  proccessUtilization() {
     const lines = this.inputUtilization.split('\n');
     const results: SummaryUtilization[] = [];
 
@@ -77,8 +77,8 @@ export class SummaryComponent {
 
       const summary: SummaryUtilization = {
         serverName: columns[0],
-        cpuUtilization: columns[columns.length - 2],
-        memoryUtilization: columns[columns.length - 5]
+        cpuUtilization: columns[columns.length - 5],
+        memoryUtilization: columns[columns.length - 2]
       }
       results.push(summary);
     })
@@ -125,13 +125,38 @@ export class SummaryComponent {
     })
   }
 
-  isResponsetimeAndIsUtilizationChange() {
-    this.isResponseTime = !this.isResponseTime;
-    this.isUtilization = !this.isUtilization;
+  getResponseTimeButtonClass() {
+    return this.isResponseTime
+      ? 'text-blue-500 border-blue-500 border-2 font-semibold py-3 rounded-lg focus:outline-none focus:shadow-outline px-4'
+      : 'hover:bg-blue-500 hover:text-white hover:border-0 px-4 py-3 border-2 text-gray-500 rounded-lg hover:font-semibold';
+  }
 
-    console.log(this.isResponseTime);
-    console.log(this.isUtilization);
-    
+  getUtilizationButtonClass() {
+    return this.isUtilization
+      ? 'text-blue-500 border-blue-500 border-2 font-semibold py-3 rounded-lg focus:outline-none focus:shadow-outline px-4'
+      : 'hover:bg-blue-500 hover:text-white hover:border-0 px-4 py-3 border-2 text-gray-500 rounded-lg hover:font-semibold';
+  }
+
+  resetResponseTime() {
+    this.outputResponseTime = 'Highest Avg. Response Time: \n';
+    this.outputErrorRate = 'Highest Avg. Error Rate: \n';
+    this.inputResponseTime = '';
+  }
+
+  resetUtilization() {
+    this.outputCpu = 'Highest Avg. CPU Utilization: \n';
+    this.outputMemory = 'Highest Avg. Memory Utilization: \n';
+    this.inputUtilization = '';
+  }
+
+  toggleResponseTime() {
+    this.isResponseTime = true;
+    this.isUtilization = false;
+  }
+
+  toggleUtilization() {
+    this.isResponseTime = false;
+    this.isUtilization = true;
   }
 
 }
