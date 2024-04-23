@@ -65,6 +65,7 @@ export class HomeComponent {
         this.jobStart.date = today;
       }
       this.jobEnd.date = this.jobStart.date;
+      this.monitorStart.date = today;
     }
   }
 
