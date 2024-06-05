@@ -1,0 +1,44 @@
+<div class="container mx-auto p-4">
+    <div class="grid grid-cols-2 gap-4">
+        <div class="mb-4">
+            <label class="block mb-2">Text 1:</label>
+            <textarea class="w-full p-4 border rounded-lg" [(ngModel)]="text1" rows="10"></textarea>
+        </div>
+        <div class="mb-4">
+            <label class="block mb-2">Text 2:</label>
+            <textarea class="w-full p-4 border rounded-lg" [(ngModel)]="text2" rows="10"></textarea>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <h3 class="mb-2">Compared Text 1:</h3>
+            <div class="border p-4 rounded-lg bg-gray-100">
+                <table class="font-mono text-xs">
+                    <tr *ngFor="let line of comparedText1Lines; let i = index" class="flex">
+                        <td class="select-none text-gray-400 mr-2 w-8" [ngClass]="{'bg-blue-200': checkIfDifferent(line)}">
+                            {{ i + 1 }}
+                        </td>
+                        <td class="break-all">
+                            <span *ngFor="let char of line" [ngClass]="{'bg-yellow-200': char.isDifferent}" [innerText]="char.character"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h3 class="mb-2">Compared Text 2:</h3>
+            <div class="border p-4 rounded-lg bg-gray-100">
+                <table class="font-mono text-xs table-auto">
+                    <tr *ngFor="let line of comparedText2Lines; let i = index" class="flex">
+                        <td class="select-none text-gray-400 mr-2 w-8" [ngClass]="{'bg-blue-200': checkIfDifferent(line)}">
+                            {{ i + 1 }}
+                        </td>
+                        <td class="break-all">
+                            <span *ngFor="let char of line" [ngClass]="{'bg-yellow-200': char.isDifferent}" [innerText]="char.character"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

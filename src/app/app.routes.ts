@@ -5,6 +5,7 @@ import { EncodeBase64Component } from './encode-base64/encode-base64.component';
 import { DecodeBase64Component } from './decode-base64/decode-base64.component';
 import { EncodeBase64FileComponent } from './encode-base64-file/encode-base64-file.component';
 import { SummaryComponent } from './summary/summary.component';
+import { TextCompareComponent } from './text-compare/text-compare.component';
 
 export const routes: Routes = [
     {
@@ -26,6 +27,10 @@ export const routes: Routes = [
     {
         path: 'encode-base64-file',
         component: EncodeBase64FileComponent
+    },
+    {
+        path: 'text-compare',
+        component: TextCompareComponent
     },
     {
         path: 'summary',
