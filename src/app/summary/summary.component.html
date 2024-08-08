@@ -19,8 +19,11 @@
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="proccessResponseTime()">Proses</button>
                     <button class="border-2 border-gray-500 text-gray-600 font-semibold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="resetResponseTime()">Reset</button>
                 </div>
-                <pre class="border p-4 rounded-md mt-4 bg-gray-100">{{outputResponseTime}}</pre>
-                <pre class="border p-4 rounded-md mt-4 bg-gray-100">{{outputErrorRate}}</pre>
+                <div class="flex w-full justify-center gap-4">
+                    <pre class="w-1/2 border p-4 rounded-md mt-4 bg-gray-100">{{outputResponseTime}}</pre>
+                    <pre class="w-1/2 border p-4 rounded-md mt-4 bg-gray-100">{{outputErrorRate}}</pre>
+                </div>
+
                 <div class="mt-4">
                     <p>Note: </p>
                     <p class="font-semibold">Contoh value yang dicopy untuk response time dan error rate (kolom yang berwarna kuning)</p>
@@ -39,8 +42,10 @@
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="proccessUtilization()">Proses</button>
                     <button class="border-2 border-gray-500 text-gray-600 font-semibold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="resetUtilization()">Reset</button>
                 </div>
-                <pre class="border p-4 rounded-md mt-4 bg-gray-100">{{outputCpu}}</pre>
-                <pre class="border p-4 rounded-md mt-4 bg-gray-100">{{outputMemory}}</pre>
+                <div class="flex w-full justify-center gap-4">
+                    <pre class="w-1/2 border p-4 rounded-md mt-4 bg-gray-100">{{outputCpu}}</pre>
+                    <pre class="w-1/2 border p-4 rounded-md mt-4 bg-gray-100">{{outputMemory}}</pre>
+                </div>
                 <div class="mt-4">
                     <p>Note: </p>
                     <p class="font-semibold">Contoh value yang dicopy untuk Utilization (kolom yang berwarna kuning)</p>

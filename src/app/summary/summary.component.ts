@@ -42,11 +42,11 @@ export class SummaryComponent {
     this.outputErrorRate = 'Highest Error Rate: \n'
     this.outputCpu = 'Highest Avg. CPU Utilization: \n'
     this.outputMemory = 'Highest Avg. Memory Utilization: \n'
-
     this.inputUtilization = '';
   }
 
   proccessResponseTime() {
+
     const lines = this.inputResponseTime.split('\n');
     const results: Summary[] = [];
 
