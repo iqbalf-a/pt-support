@@ -47,7 +47,18 @@ export class SummaryComponent {
 
   proccessResponseTime() {
 
+    this.outputResponseTime = 'Highest Avg. Response Time: \n';
+    this.outputErrorRate = 'Highest Avg. Error Rate: \n';
+
     const lines = this.inputResponseTime.split('\n');
+
+    if (lines[0].split('\t').length !== lines[1].split('\t').length) {
+      return alert("Perhatikan format");
+    }
+    if (lines[lines.length - 1] === "") {
+      lines.pop();
+    }
+
     const results: Summary[] = [];
 
     for (let line of lines) {
@@ -69,7 +80,19 @@ export class SummaryComponent {
   }
 
   proccessUtilization() {
+
+    this.outputCpu = 'Highest Avg. CPU Utilization: \n';
+    this.outputMemory = 'Highest Avg. Memory Utilization: \n';
+
     const lines = this.inputUtilization.split('\n');
+
+    if (lines[0].split('\t').length !== lines[1].split('\t').length) {
+      return alert("Perhatikan format");
+    }
+    if (lines[lines.length - 1] === "") {
+      lines.pop();
+    }
+    
     const results: SummaryUtilization[] = [];
 
     lines.forEach((item, index, arr) => {
