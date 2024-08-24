@@ -6,6 +6,7 @@ import { DecodeBase64Component } from './decode-base64/decode-base64.component';
 import { EncodeBase64FileComponent } from './encode-base64-file/encode-base64-file.component';
 import { SummaryComponent } from './summary/summary.component';
 import { TextCompareComponent } from './text-compare/text-compare.component';
+import { LineFilterComponent } from './line-filter/line-filter.component';
 
 export const routes: Routes = [
     {
@@ -36,4 +37,8 @@ export const routes: Routes = [
         path: 'summary',
         component: SummaryComponent
     },
+    {
+        path: 'line-filter',
+        component: LineFilterComponent
+    }
 ];

@@ -1,0 +1,23 @@
+<div class="flex">
+    <h3>{{ filter.name }}</h3>
+
+    <!-- Dropdown untuk memilih kondisi (Is Equal To, Is Not Equal To) -->
+    <select [(ngModel)]="filter.equality" (change)="onFilterChange()">
+    <option value="is equal to">is equal to</option>
+    <option value="is not equal to">is not equal to</option>
+  </select>
+
+    <!-- Dropdown untuk operator (contains, equals, dll.) -->
+    <select [(ngModel)]="filter.operator" (change)="onFilterChange()">
+    <option value="contains">contains</option>
+    <option value="equals">equals</option>
+    <option value="startswith">starts with</option>
+    <option value="endswith">ends with</option>
+  </select>
+
+    <!-- Textarea untuk nilai input -->
+    <textarea [(ngModel)]="filter.value" (change)="onFilterChange()" placeholder="Enter text"></textarea>
+
+    <!-- Tombol Hapus untuk menghapus filter -->
+    <button (click)="removeFilter()">Hapus Filter</button>
+</div>

@@ -1,0 +1,7 @@
+<button (click)="addFilter()">Tambah Filter</button>
+<div *ngFor="let filter of filters; let i = index">
+    <app-filter-element [filter]="filter" (remove)="removeFilter(i)" (filterChanged)="updateFilter(i, filter)">
+    </app-filter-element>
+</div>
+<button (click)="proses()">proses</button>
+<button (click)="removeAllFilter()">bersihkan</button>
