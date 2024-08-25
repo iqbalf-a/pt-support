@@ -1,22 +1,27 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Evaluator, Operator } from '../../line-filter/line-filter.component';
 
 @Component({
   selector: 'app-filter-element',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './filter-element.component.html',
   styleUrls: ['./filter-element.component.css']
 })
 export class FilterElementComponent {
-  @Input() filter: { name: string, equality: string, operator: string, value: string } = {
+  evaluators = Object.values(Evaluator);
+  operators = Object.values(Operator);
+
+  @Input() filter: { name: string, evaluator: string, operator: string, value: string } = {
     name: '',
-    equality: 'is equal to',
+    evaluator: 'is equal to',
     operator: 'contains',
     value: ''
   };
   @Output() remove = new EventEmitter<void>();
-  @Output() filterChanged = new EventEmitter<{ name: string, equality: string, operator: string, value: string }>();
+  @Output() filterChanged = new EventEmitter<{ name: string, evaluator: string, operator: string, value: string }>();
 
   onFilterChange() {
     this.emitFilterChange();
