@@ -11,13 +11,33 @@ import { FormsModule } from '@angular/forms';
 export class DecodeBase64Component {
   inputText: string;
   outputText: string;
+  isChecked: boolean;
 
   constructor(){
     this.inputText = ''
     this.outputText = ''
+    this.isChecked = false;
   }
 
-  generate() {
-    this.outputText = atob(this.inputText);
+  decode() {
+    console.log(this.isChecked);
+
+    let result: string = '';
+    if (this.isChecked) {
+      let text: string[];
+      text = this.inputText.split('\n');
+      text.forEach((item, index) => {
+        result += atob(item);
+        if (index < text.length - 1) {
+          result += '\n'
+        }
+      })
+    } else {
+      let text: string;
+      text = this.inputText;
+      result = atob(text);
+    }
+    // this.outputText = btoa(this.inputText);
+    this.outputText = result;
   }
 }
