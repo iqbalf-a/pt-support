@@ -6,7 +6,7 @@ import { FilterElementComponent } from '../components/filter-element/filter-elem
 export enum Operator {
   CONTAINS = 'contains',
   EQUALS = 'equals',
-  STARTS_WITH = 'starts swith',
+  STARTS_WITH = 'starts with',
   ENDS_WITH = 'ends with',
 }
 

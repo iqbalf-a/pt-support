@@ -12,14 +12,34 @@ export class EncodeBase64Component {
 
   inputText: string;
   outputText: string;
+  isChecked: boolean;
 
-  constructor(){
+  constructor() {
     this.inputText = ''
     this.outputText = ''
+    this.isChecked = false;
   }
 
-  generate() {
-    this.outputText = btoa(this.inputText);
+  encode() {
+    console.log(this.isChecked);
+
+    let result: string = '';
+    if (this.isChecked) {
+      let text: string[];
+      text = this.inputText.split('\n');
+      text.forEach((item, index) => {
+        result += btoa(item);
+        if (index < text.length - 1) {
+          result += '\n'
+        }
+      })
+    } else {
+      let text: string;
+      text = this.inputText;
+      result = btoa(text);
+    }
+    // this.outputText = btoa(this.inputText);
+    this.outputText = result;
   }
 
 }
