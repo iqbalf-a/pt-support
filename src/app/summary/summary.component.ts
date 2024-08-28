@@ -5,13 +5,16 @@ import { FormsModule } from '@angular/forms';
 interface Summary {
   bpName: string;
   averageResponseTime: string;
+  maxResponseTime: string;
   errorRate: string;
 }
 
 interface SummaryUtilization {
   serverName: string;
-  cpuUtilization: string;
-  memoryUtilization: string;
+  avgCpuUtilization: string;
+  avgMemoryUtilization: string;
+  maxCpuUtilization: string;
+  maxMemoryUtilization: string;
 }
 
 @Component({
@@ -23,6 +26,8 @@ interface SummaryUtilization {
 })
 
 export class SummaryComponent {
+  isMaxRespChecked: boolean;
+  isMaxUtilChecked: boolean;
   isResponseTime: boolean;
   isUtilization: boolean;
   inputResponseTime: string;
@@ -34,6 +39,8 @@ export class SummaryComponent {
   outputMemory: string;
 
   constructor() {
+    this.isMaxRespChecked = false;
+    this.isMaxUtilChecked = false;
     this.isResponseTime = true;
     this.isUtilization = false;
     this.inputResponseTime = '';
@@ -67,6 +74,7 @@ export class SummaryComponent {
       const summary: Summary = {
         bpName: columns[0],
         averageResponseTime: columns[2],
+        maxResponseTime: columns[3],
         errorRate: columns[9]
       };
 
@@ -92,7 +100,7 @@ export class SummaryComponent {
     if (lines[lines.length - 1] === "") {
       lines.pop();
     }
-    
+
     const results: SummaryUtilization[] = [];
 
     lines.forEach((item, index, arr) => {
@@ -100,8 +108,10 @@ export class SummaryComponent {
 
       const summary: SummaryUtilization = {
         serverName: columns[0],
-        cpuUtilization: columns[columns.length - 5],
-        memoryUtilization: columns[columns.length - 2]
+        avgCpuUtilization: columns[columns.length - 5],
+        avgMemoryUtilization: columns[columns.length - 2],
+        maxCpuUtilization: columns[columns.length - 4],
+        maxMemoryUtilization: columns[columns.length - 1]
       }
       results.push(summary);
     })
@@ -119,9 +129,17 @@ export class SummaryComponent {
   sortingResponsetimeDescending(data: Summary[]) {
     data.sort((a, b) => Number(b.averageResponseTime) - Number(a.averageResponseTime));
 
-    data.map(x => {
-      this.outputResponseTime += `${x.bpName}: ${x.averageResponseTime}s \n`
-    });
+    if (this.isMaxRespChecked) {
+      data.map(x => {
+        this.outputResponseTime += `${x.bpName}: ${x.averageResponseTime}s (Max: ${x.maxResponseTime}s) \n`
+      });
+    } else {
+      data.map(x => {
+        this.outputResponseTime += `${x.bpName}: ${x.averageResponseTime}s \n`
+      });
+    }
+
+
   }
 
   sortingErrorrateDescending(data: Summary[]) {
@@ -133,19 +151,35 @@ export class SummaryComponent {
   }
 
   sortingCpuDescending(data: SummaryUtilization[]) {
-    data.sort((a, b) => Number(b.cpuUtilization) - Number(a.cpuUtilization));
+    data.sort((a, b) => Number(b.avgCpuUtilization) - Number(a.avgCpuUtilization));
 
-    data.map(x => {
-      this.outputCpu += `${x.serverName}: ${x.cpuUtilization}% \n`
-    })
+    if (this.isMaxUtilChecked) {
+      data.map(x => {
+        this.outputCpu += `${x.serverName}: ${x.avgCpuUtilization}% (Max: ${x.maxCpuUtilization}%) \n`
+      })
+    } else {
+      data.map(x => {
+        this.outputCpu += `${x.serverName}: ${x.avgCpuUtilization}% \n`
+      })
+    }
+
+
   }
 
   sortingMemoryDescending(data: SummaryUtilization[]) {
-    data.sort((a, b) => Number(b.memoryUtilization) - Number(a.memoryUtilization));
+    data.sort((a, b) => Number(b.avgMemoryUtilization) - Number(a.avgMemoryUtilization));
 
-    data.map(x => {
-      this.outputMemory += `${x.serverName}: ${x.memoryUtilization}% \n`
-    })
+    if (this.isMaxUtilChecked) {
+      data.map(x => {
+        this.outputMemory += `${x.serverName}: ${x.avgMemoryUtilization}% (Max: ${x.maxMemoryUtilization}%) \n`
+      })
+    } else {
+      data.map(x => {
+        this.outputMemory += `${x.serverName}: ${x.avgMemoryUtilization}% \n`
+      })
+    }
+
+
   }
 
   getResponseTimeButtonClass() {
