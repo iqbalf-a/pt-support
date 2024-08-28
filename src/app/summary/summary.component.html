@@ -1,7 +1,8 @@
 <main class="py-4 text-sm">
     <div class="flex justify-center gap-8">
         <div class="flex justify-center mt-4">
-            <button class="text-sm" [ngClass]="getResponseTimeButtonClass()" (click)="toggleResponseTime()">Response Time & Error
+            <button class="text-sm" [ngClass]="getResponseTimeButtonClass()" (click)="toggleResponseTime()">Response
+                Time & Error
                 Rate</button>
         </div>
         <div class="flex justify-center mt-4">
@@ -14,7 +15,14 @@
         <div class="w-2/3 mt-4">
             <p class="font-semibold">Response time & Error rate</p>
             <div class="mt-4 flex flex-col">
+
                 <textarea class="font-mono border w-full h-64 rounded-md p-4" [(ngModel)]="inputResponseTime" placeholder="enter text..."></textarea>
+                <div class="flex flex-col items-center mt-4">
+                    <div class="flex">
+                        <input type="checkbox" id="max-resp" class="mr-2" [(ngModel)]="isMaxRespChecked" />
+                        <label class="text-sm" for="max-resp"> show max response time</label>
+                    </div>
+                </div>
                 <div class="flex justify-center gap-4">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="proccessResponseTime()">Proses</button>
                     <button class="border-2 border-gray-500 text-gray-600 font-semibold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="resetResponseTime()">Reset</button>
@@ -38,6 +46,12 @@
             <p class="font-semibold">CPU & Memory utilization</p>
             <div class="mt-4 flex flex-col">
                 <textarea class="font-mono border w-full h-64 rounded-md p-4" [(ngModel)]="inputUtilization" placeholder="enter text..."></textarea>
+                <div class="flex flex-col items-center mt-4">
+                    <div class="flex">
+                        <input type="checkbox" id="max-util" class="mr-2" [(ngModel)]="isMaxUtilChecked" />
+                        <label class="text-sm" for="max-util"> show max utilization</label>
+                    </div>
+                </div>
                 <div class="flex justify-center gap-4">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="proccessUtilization()">Proses</button>
                     <button class="border-2 border-gray-500 text-gray-600 font-semibold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="resetUtilization()">Reset</button>
