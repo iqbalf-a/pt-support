@@ -101,10 +101,10 @@ export class LineFilterComponent {
             statusData = data.toLocaleLowerCase() === filter.value.toLocaleLowerCase();
             break;
           case Operator.ENDS_WITH:
-            statusData = data.endsWith(filter.value.toLocaleLowerCase())
+            statusData = data.toLocaleLowerCase().endsWith(filter.value.toLocaleLowerCase())
             break;
           case Operator.STARTS_WITH:
-            statusData = data.startsWith(filter.value.toLowerCase())
+            statusData = data.toLocaleLowerCase().startsWith(filter.value.toLowerCase())
             break;
           default:
             statusData = true;
