@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { InputTimeComponent } from '../components/input-time/input-time.component';
+import { InputTimeComponent } from '../../components/input-time/input-time.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 

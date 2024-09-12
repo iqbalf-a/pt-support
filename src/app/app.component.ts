@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './page/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -9,11 +9,16 @@ import { FooterComponent } from './components/footer/footer.component';
   standalone: true,
   imports: [RouterOutlet, HomeComponent, NavbarComponent, FooterComponent],
   // templateUrl: './app.component.html',
-  template: `<app-navbar></app-navbar>
-  <app-footer></app-footer>
+  template: `
+  <app-navbar></app-navbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
   `,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'pt-support';
 }
+
