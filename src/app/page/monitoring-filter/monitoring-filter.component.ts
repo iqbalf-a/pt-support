@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { InputTimeComponent } from '../components/input-time/input-time.component';
+import { InputTimeComponent } from '../../components/input-time/input-time.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-monitoring-filter',
   standalone: true,
   imports: [FormsModule, InputTimeComponent, CommonModule, RouterOutlet, RouterLink],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  templateUrl: './monitoring-filter.component.html',
+  styleUrl: './monitoring-filter.component.css'
 })
-export class HomeComponent {
+export class MonitoringFilterComponent {
   currentDate: string;
   sameDate: boolean = false;
   filterStartSeconds: number;

@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 .activeLink {
-    @apply border-b-2 border-blue-600 pb-3;
+    @apply w-full text-white font-semibold bg-blue-500 text-sm;
 }
 
 .inactiveLink {
-    @apply text-gray-500
+    @apply text-gray-500 text-sm font-semibold;
 }
 
 

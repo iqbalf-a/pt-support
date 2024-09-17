@@ -1,17 +1,57 @@
-<nav class="shadow-sm fixed top-0 w-full bg-white z-50">
-    <div class="container mx-auto flex justify-center gap-12 font-medium pt-4">
-        <a [ngClass]="{ activeLink: isActive('/'), inactiveLink: !isActive('/') }" routerLink="/">Time Calculator</a>
-        <a [ngClass]="{ activeLink: isActive('/encode-base64'), inactiveLink: !isActive('/encode-base64') }" routerLink="/encode-base64">Encode Base64</a>
-        <a [ngClass]="{ activeLink: isActive('/decode-base64'), inactiveLink: !isActive('/decode-base64') }" routerLink="/decode-base64">Decode Base64</a>
-        <a [ngClass]="{ activeLink: isActive('/encode-base64-file'), inactiveLink: !isActive('/encode-base64-file') }" routerLink="/encode-base64-file">Encode Base64 (File)</a>
+<nav class="shadow-sm fixed left-0 h-full bg-white z-50 w-72 px-8 py-10">
+    <div class="flex items-center">
+        <img [src]="imageSrc" class="h-10" alt="pt-icon" srcset="">
+        <!-- <p class="font-semibold text-lg ml-4">pt-suppot</p> -->
+        <p class="text-xs text-gray-600 ml-4">v2.0</p>
+    </div>
+    <div class="container text-base mx-auto flex flex-col mt-12">
+        <div class="flex flex-col mb-1">
+            <p class="text-sm text-gray-400 mb-1">Main</p>
+            <div class="flex flex-col">
+                <a [ngClass]="{ activeLink: isActive('/home'), inactiveLink: !isActive('/home') }" routerLink="/home" class="w-full py-2 px-4 my-1 rounded-md">
+                    Home
+                </a>
+            </div>
+        </div>
+
+        <div class="flex flex-col mb-1">
+            <p class="text-sm text-gray-400 mb-1">Base64</p>
+            <div class="flex flex-col">
+                <a [ngClass]="{ activeLink: isActive('/base64-encode'), inactiveLink: !isActive('/base64-encode') }" routerLink="/base64-encode" class="w-full py-2 px-4 rounded-md">Encode</a>
+                <a [ngClass]="{ activeLink: isActive('/base64-decode'), inactiveLink: !isActive('/base64-decode') }" routerLink="/base64-decode" class="w-full py-2 px-4 rounded-md">Decode</a>
+                <a [ngClass]="{ activeLink: isActive('/base64-encode-file'), inactiveLink: !isActive('/base64-encode-file') }" routerLink="/base64-encode-file" class="w-full py-2 px-4 rounded-md">Encode by File</a>
+            </div>
+        </div>
+        <div class="flex flex-col mb-1">
+            <p class="text-sm text-gray-400 mb-1">Filter</p>
+            <div class="flex flex-col">
+                <a [ngClass]="{ activeLink: isActive('/monitoring-filter'), inactiveLink: !isActive('/monitoring-filter') }" routerLink="/monitoring-filter" class="w-full py-2 px-4 rounded-md">
+                    Monitoring Filter
+                </a>
+                <a [ngClass]="{ activeLink: isActive('/line-filter'), inactiveLink: !isActive('/line-filter') }" routerLink="/line-filter" class="w-full py-2 px-4 rounded-md">
+                    Line Filter
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-col mb-1">
+            <p class="text-sm text-gray-400 mb-1">Indexing</p>
+            <div class="flex flex-col">
+                <a [ngClass]="{ activeLink: isActive('/indexing/snapshot-indexing'), inactiveLink: !isActive('/indexing/snapshot-indexing') }" routerLink="/indexing/snapshot-indexing" class="w-full py-2 px-4 rounded-md">
+                    Snapshot Indexing
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-col mb-1">
+            <p class="text-sm text-gray-400 mb-1">Other</p>
+            <div class="flex flex-col">
+                <a [ngClass]="{ activeLink: isActive('/summary'), inactiveLink: !isActive('/summary') }" routerLink="/summary" class="w-full py-2 px-4 rounded-md">Summary (Run Result)</a>
+            </div>
+        </div>
+
+
         <!-- <a [ngClass]="{ activeLink: isActive('/text-compare'), inactiveLink: !isActive('/text-compare') }" routerLink="/text-compare">Text Compare</a> -->
-        <a [ngClass]="{ activeLink: isActive('/summary'), inactiveLink: !isActive('/summary') }" routerLink="/summary">Summary (Run Result)</a>
-        <a [ngClass]="{ activeLink: isActive('/line-filter'), inactiveLink: !isActive('/line-filter') }" routerLink="/line-filter">
-            Line Filter <span class="text-blue-600 text-sm" *ngIf="true">new!</span>
-        </a>
+
+
 
     </div>
 </nav>
-<div class="pt-10">
-    <router-outlet />
-</div>

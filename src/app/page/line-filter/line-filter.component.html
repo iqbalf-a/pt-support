@@ -1,0 +1,43 @@
+<main class="pl-8">
+    <p class="text-sm text-gray-500">Line Filter</p>
+    <div class="flex justify-center mt-4">
+        <div class="flex-col w-2/3">
+            <div class="">
+                <p class="font-semibold text-sm">Input</p>
+                <textarea class="mt-2 font-mono text-sm w-full border rounded-lg h-64 p-4" placeholder="enter text..." [(ngModel)]="inputText" (change)="updateInputText(inputText)"></textarea>
+                <button class="mt-2 font-semibold text-sm text-gray-400 border rounded-lg py-2 px-4 hover:bg-gray-400 hover:text-white" (click)="clearInputText()">Clear text</button>
+            </div>
+            <div>
+                <div class="mt-4">
+                    <p class="font-semibold">Filter Text by Line</p>
+                    <button class="flex font-semibold text-sm text-white rounded-lg bg-blue-500 p-2 text-center mt-2" (click)="addFilter()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" class="size-5">
+                            <path
+                                d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                        </svg>
+                        Add Filter
+                    </button>
+                </div>
+                <div *ngIf="filters.length > 0" class="mt-4 flex text-sm">
+                    <p class="mr-3">No. </p>
+                    <p class="w-16 mr-4">evaluator</p>
+                    <p class="w-28 mr-4">operator</p>
+                    <p class="">value</p>
+                </div>
+                <div *ngFor="let filter of filters; let i = index">
+                    <app-filter-element [filter]="filter" (remove)="removeFilter(i)" (filterChanged)="updateFilter(i, filter)">
+                    </app-filter-element>
+
+                </div>
+            </div>
+            <div class="flex gap-3 mt-4">
+                <button class="text-sm px-6 py-2 text-white bg-blue-500 font-semibold rounded-md hover:bg-blue-600" (click)="processFilter()">Filter</button>
+                <button class="text-sm px-6 py-2 text-gray-400 font-semibold border-2 rounded-md hover:bg-gray-400 hover:text-gray-50" (click)="removeAllFilter()">Clear all filter</button>
+            </div>
+            <div class="mt-4">
+                <p class="font-semibold text-sm">Output</p>
+                <textarea class="mt-2 font-mono text-sm w-full border rounded-lg h-64 p-4" [(ngModel)]="outputText" (change)="updateOutputtext(outputText)" disabled></textarea>
+            </div>
+        </div>
+    </div>
+</main>

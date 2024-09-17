@@ -1,7 +1,7 @@
 import { Component, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FilterElementComponent } from '../components/filter-element/filter-element.component';
+import { FilterElementComponent } from '../../components/filter-element/filter-element.component';
 
 export enum Operator {
   CONTAINS = 'contains',

@@ -1,0 +1,80 @@
+<main class="pl-8">
+    <p class="text-sm text-gray-500">Monitoring Filter</p>
+    <div class="rounded-lg justify-center flex text-sm">
+        <div class="flex py-6">
+            <form action="" class="">
+                <label class="text-gray-400 text-sm">
+                    <input type="checkbox" [(ngModel)]="sameDate" [ngModelOptions]="{standalone: true}"
+                        (change)="updateJobEndDate()"> Samakan Tanggal Job Start dan End
+                </label>
+                <div class="flex mb-4 gap-12 mt-4">
+                    <div class="flex flex-col mr-16">
+                        <h1 class="font-bold">Job Start*</h1>
+                        <div>
+
+                            <p class="text-sm text-gray-400 mt-2">Tanggal</p>
+                            <input id="job-start-date" type="date" class="border px-4 py-2 rounded-lg text-sm mt-1" name="job-start-date" [(ngModel)]="jobStart.date" (change)="updateJobEndDate()" />
+                        </div>
+                        <div>
+
+                            <p class="text-sm text-gray-400 mt-2">Jam</p>
+                            <input id="job-start-time" type="time" class="border px-4 py-2 rounded-lg text-sm mt-1" name="job-start-time" step="2" [(ngModel)]="jobStart.timeStart" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <h1 class="font-bold">Job End*</h1>
+                        <div>
+
+                            <p class="text-sm text-gray-400 mt-2">Tanggal</p>
+                            <input id="job-end-date" type="date" class="border px-4 py-2 rounded-lg text-sm mt-1" name="job-end-date" [(ngModel)]="jobEnd.date" [disabled]="sameDate" />
+
+                        </div>
+                        <div>
+
+                            <p class="text-sm text-gray-400 mt-2">Jam</p>
+                            <input id="job-end-time" type="time" class="border px-4 py-2 rounded-lg text-sm mt-1" name="job-end-time" step="2" [(ngModel)]="jobEnd.timeStart" />
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex flex-col mt-8">
+                    <h1 class="font-bold">Monitor Start*</h1>
+                    <div>
+
+                        <p class="text-sm text-gray-400 mt-2">Tanggal</p>
+                        <input id="monitor-start-date" type="date" class="border px-4 py-2 rounded-lg text-sm mt-1" name="monitor-start-time" [(ngModel)]="monitorStart.date" />
+                    </div>
+                    <div>
+
+                        <p class="text-sm text-gray-400 mt-2">Jam</p>
+                        <input id="monitor-start-time" type="time" class="border px-4 py-2 rounded-lg text-sm mt-1" name="monitor-start-time" step="2" [(ngModel)]="monitorStart.timeStart" />
+                    </div>
+                </div>
+
+                <div class="justify-center flex mt-8">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline" type="button" (click)="calculate()">Hitung</button>
+                </div>
+            </form>
+
+            <div class="w-80">
+                <div class="bg-gray-200 p-4 rounded-lg ml-16">
+                    <p class=" font-semibold">Result: </p>
+                    <div class="flex flex-col mb-4">
+                        <p class="text-sm">Filter Start </p>
+                        <p class="font-semibold text-sm">{{filterStart.timeResult}}</p>
+                    </div>
+                    <div class="flex flex-col mb-4">
+                        <p class="text-sm">Filter End </p>
+                        <p class="font-semibold text-sm">{{filterEnd.timeResult}}</p>
+                    </div>
+                    <div class="flex flex-col  mb-2">
+                        <p class="text-sm">Durasi Job </p>
+                        <p class="text-sm">{{secondsToTime(filterDurationSeconds)}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
