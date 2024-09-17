@@ -10,10 +10,11 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  imageSrc: string = '../assets/pt-icon.png';
   constructor(private router: Router) { }
 
   isActive(route: string): boolean {
     return this.router.url === route;
   }
-
+  
 }

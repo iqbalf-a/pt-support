@@ -1,4 +1,5 @@
-<main class="py-4 text-sm">
+<main class="pl-8 pb-8 text-sm">
+    <p class="text-sm text-gray-500">Summary</p>
     <div class="flex justify-center gap-8">
         <div class="flex justify-center mt-4">
             <button class="text-sm" [ngClass]="getResponseTimeButtonClass()" (click)="toggleResponseTime()">Response
@@ -53,7 +54,7 @@
                     </div>
                 </div>
                 <div class="flex justify-center gap-4">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="proccessUtilization()">Proses</button>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="proccessUtilization()">Process</button>
                     <button class="border-2 border-gray-500 text-gray-600 font-semibold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="resetUtilization()">Reset</button>
                 </div>
                 <div class="flex w-full justify-center gap-4">
