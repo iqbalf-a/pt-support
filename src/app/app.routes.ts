@@ -12,6 +12,7 @@ import { NotFoundComponent } from './page/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { MonitoringFilterComponent } from './page/monitoring-filter/monitoring-filter.component';
 import { ScreenWakeComponent } from './components/screen-wake/screen-wake.component';
+import { JsonToStringComponent } from './page/json-to-string/json-to-string.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'line-filter', component: LineFilterComponent },
   { path: 'indexing/snapshot-indexing', component: SnapshotIndexingComponent },
   { path: 'screen-wake', component: ScreenWakeComponent },
+  { path: 'json-to-string', component: JsonToStringComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }  // Pastikan rute wildcard ini ada di akhir
