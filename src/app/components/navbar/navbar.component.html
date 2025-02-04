@@ -6,7 +6,7 @@
     </div>
     <div class="container text-base mx-auto flex flex-col mt-12">
         <div class="flex flex-col mb-1">
-            <p class="text-sm text-gray-400 mb-1">Main</p>
+            <p class="text-xs text-gray-400 mb-1">Main</p>
             <div class="flex flex-col">
                 <a [ngClass]="{ activeLink: isActive('/home'), inactiveLink: !isActive('/home') }" routerLink="/home" class="w-full py-2 px-4 my-1 rounded-md">
                     Home
@@ -14,17 +14,17 @@
             </div>
         </div>
 
-        <div class="flex flex-col mb-1">
-            <p class="text-sm text-gray-400 mb-1">Base64</p>
-            <div class="flex flex-col">
+        <div class="flex flex-col mb-1 mt-2">
+            <p class="text-xs text-gray-400 mb-1">Base64</p>
+            <div class="flex flex-col gap-2">
                 <a [ngClass]="{ activeLink: isActive('/base64-encode'), inactiveLink: !isActive('/base64-encode') }" routerLink="/base64-encode" class="w-full py-2 px-4 rounded-md">Encode</a>
                 <a [ngClass]="{ activeLink: isActive('/base64-decode'), inactiveLink: !isActive('/base64-decode') }" routerLink="/base64-decode" class="w-full py-2 px-4 rounded-md">Decode</a>
                 <a [ngClass]="{ activeLink: isActive('/base64-encode-file'), inactiveLink: !isActive('/base64-encode-file') }" routerLink="/base64-encode-file" class="w-full py-2 px-4 rounded-md">Encode by File</a>
             </div>
         </div>
-        <div class="flex flex-col mb-1">
-            <p class="text-sm text-gray-400 mb-1">Filter</p>
-            <div class="flex flex-col">
+        <div class="flex flex-col mb-1 mt-2">
+            <p class="text-xs text-gray-400 mb-1">Filter</p>
+            <div class="flex flex-col gap-2">
                 <a [ngClass]="{ activeLink: isActive('/monitoring-filter'), inactiveLink: !isActive('/monitoring-filter') }" routerLink="/monitoring-filter" class="w-full py-2 px-4 rounded-md">
                     Monitoring Filter
                 </a>
@@ -33,25 +33,20 @@
                 </a>
             </div>
         </div>
-        <div class="flex flex-col mb-1">
-            <p class="text-sm text-gray-400 mb-1">Indexing</p>
-            <div class="flex flex-col">
+        <div class="flex flex-col mb-1 mt-2">
+            <p class="text-xs text-gray-400 mb-1">Indexing</p>
+            <div class="flex flex-col gap-2">
                 <a [ngClass]="{ activeLink: isActive('/indexing/snapshot-indexing'), inactiveLink: !isActive('/indexing/snapshot-indexing') }" routerLink="/indexing/snapshot-indexing" class="w-full py-2 px-4 rounded-md">
                     Snapshot Indexing
                 </a>
             </div>
         </div>
-        <div class="flex flex-col mb-1">
-            <p class="text-sm text-gray-400 mb-1">Other</p>
-            <div class="flex flex-col">
+        <div class="flex flex-col mb-1 mt-2">
+            <p class="text-xs text-gray-400 mb-1">Other</p>
+            <div class="flex flex-col gap-2">
                 <a [ngClass]="{ activeLink: isActive('/summary'), inactiveLink: !isActive('/summary') }" routerLink="/summary" class="w-full py-2 px-4 rounded-md">Summary (Run Result)</a>
+                <!-- <a [ngClass]="{ activeLink: isActive('/screen-wake'), inactiveLink: !isActive('/screen-wake') }" routerLink="/screen-wake" class="w-full py-2 px-4 rounded-md">Screen Wake</a> -->
             </div>
         </div>
-
-
-        <!-- <a [ngClass]="{ activeLink: isActive('/text-compare'), inactiveLink: !isActive('/text-compare') }" routerLink="/text-compare">Text Compare</a> -->
-
-
-
     </div>
 </nav>
