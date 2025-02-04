@@ -21,12 +21,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   async ngOnInit(): Promise<void> {
     // Pastikan hanya di browser yang memanggil requestWakeLock
     if (isPlatformBrowser(this.platformId)) {
-      // Menunggu Angular memastikan semuanya siap di browser
-      setTimeout(async () => {
-        await this.requestWakeLock();
+      // Menunggu sampai halaman terlihat
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          this.requestWakeLock();
+        }
       });
     }
   }
+
 
   ngOnDestroy(): void {
     if (this.wakeLock) {
