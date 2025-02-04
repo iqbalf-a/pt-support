@@ -12,16 +12,23 @@ export class JsonToStringComponent {
 
   inputText: string;
   outputText: string;
+  isChecked: boolean;
 
   constructor() {
     this.inputText = ''
     this.outputText = ''
+    this.isChecked = false;
   }
 
   convertToString() {
     let result: string = '';
 
-    result = this.inputText.replace(/\r?\n|\r|\s+/g, "");
+    result = this.inputText.replace(/ +|\t/g, "");
+
+    if (this.isChecked) {
+      result = result.replace(/\s/g, "");
+    }
+
     result = result.replace(/"/g, '\\"');
     result = result.replace(/$/gm, '"');
     result = result.replace(/^/gm, '"');

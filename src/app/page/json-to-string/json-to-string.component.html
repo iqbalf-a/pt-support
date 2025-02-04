@@ -7,6 +7,10 @@
                 <textarea class="mt-2 font-mono text-sm border w-full h-64 p-4 rounded-lg resize" placeholder="enter text..." [(ngModel)]="inputText"></textarea>
             </div>
             <div class="flex flex-col justify-center items-center mt-4">
+                <div class="flex">
+                    <input type="checkbox" id="each-line" class="mr-2" [(ngModel)]="isChecked" />
+                    <label for="each-line" class="text-sm">trim each line</label>
+                </div>
                 <button class="text-sm bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="convertToString()">Convert</button>
             </div>
             <div class="flex flex-col justify-center mt-4">
