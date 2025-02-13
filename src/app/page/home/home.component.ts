@@ -85,6 +85,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   clicked() {
-    alert("yey!!");
+    // alert("yey!!");
+    this.moveButton();
   }
 }
