@@ -4,18 +4,18 @@
         <div class="flex-col w-2/3">
             <div class="flex flex-col justify-center">
                 <p class="text-sm font-semibold">Input</p>
-                <textarea class="mt-2 font-mono text-sm border w-full h-64 p-4 rounded-lg resize" placeholder="enter text..." [(ngModel)]="inputText"></textarea>
+                <textarea class="mt-2 font-mono text-sm border w-full h-64 p-4 rounded-lg resize" placeholder="enter text..." [(ngModel)]="inputText" id="text-input"></textarea>
             </div>
             <div class="flex flex-col justify-center items-center mt-4">
                 <div class="flex">
                     <input type="checkbox" id="each-line" class="mr-2" [(ngModel)]="isChecked" />
                     <label for="each-line" class="text-sm">encode each line</label>
                 </div>
-                <button class="text-sm bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="encode()">Encode</button>
+                <button class="text-sm bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="encode()" id="btn-encode">Encode</button>
             </div>
             <div class="flex flex-col justify-center mt-4">
                 <p class="text-sm font-semibold">Output</p>
-                <textarea class="mt-2 text-sm font-mono border w-full p-4 rounded-lg h-64 resize" [value]="outputText" disabled></textarea>
+                <textarea class="mt-2 text-sm font-mono border w-full p-4 rounded-lg h-64 resize" [value]="outputText" disabled id="text-output"></textarea>
             </div>
         </div>
     </div>

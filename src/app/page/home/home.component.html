@@ -4,7 +4,7 @@
         <img src="../../../assets/pentol-stiker.gif" alt="Sticker">
     </div>
     <div class="relative">
-        <button [ngStyle]="{'top.px': buttonTop, 'left.px': buttonLeft}" class="absolute px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-sm" (mouseenter)="moveButton()" (click)="clicked()">
+        <button id="btn-click-me" [ngStyle]="{'top.px': buttonTop, 'left.px': buttonLeft}" class="absolute px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-sm" (mouseenter)="moveButton()" (click)="clicked()">
             Click me!
         </button>
     </div>

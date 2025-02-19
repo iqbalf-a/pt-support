@@ -24,12 +24,12 @@
             <h3>Encoded Base64:</h3>
             <p>Encode All</p>
             <div class="mt-4 flex items-center flex-col">
-                <textarea class="border w-full p-4 rounded-lg h-64" [value]="encodedBase64" disabled></textarea>
+                <textarea id="text-output-all" class="border w-full p-4 rounded-lg h-64" [value]="encodedBase64" disabled></textarea>
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="copyEncodedBase64ToClipboard()">Copy</button>
             </div>
             <p>Encode value only</p>
             <div class="mt-4 flex items-center flex-col">
-                <textarea class="border w-full p-4 rounded-lg h-64" [value]="encodedBase64Value" disabled></textarea>
+                <textarea id="text-output-value" class="border w-full p-4 rounded-lg h-64" [value]="encodedBase64Value" disabled></textarea>
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-48 rounded-lg focus:outline-none focus:shadow-outline mt-4" (click)="copyEncodedBase64ValueToClipboard()">Copy</button>
             </div>
         </div>
