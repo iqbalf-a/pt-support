@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Evaluator, Operator } from '../../page/line-filter/line-filter.component';
+import { Evaluator, Operator } from '../../page/text-filter/text-filter.component';
 
 @Component({
   selector: 'app-filter-element',

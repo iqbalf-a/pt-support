@@ -6,7 +6,7 @@ import { DecodeBase64Component } from './page/decode-base64/decode-base64.compon
 import { EncodeBase64FileComponent } from './page/encode-base64-file/encode-base64-file.component';
 import { SummaryComponent } from './page/summary/summary.component';
 import { TextCompareComponent } from './page/text-compare/text-compare.component';
-import { LineFilterComponent } from './page/line-filter/line-filter.component';
+import { TextFilterComponent } from './page/text-filter/text-filter.component';
 import { SnapshotIndexingComponent } from './page/indexing/snapshot-indexing/snapshot-indexing.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
 import { NgModule } from '@angular/core';
@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'text-compare', component: TextCompareComponent },
   { path: 'summary', component: SummaryComponent },
   { path: 'monitoring-filter', component: MonitoringFilterComponent },
-  { path: 'line-filter', component: LineFilterComponent },
+  { path: 'text-filter', component: TextFilterComponent },
   { path: 'indexing/snapshot-indexing', component: SnapshotIndexingComponent },
   { path: 'screen-wake', component: ScreenWakeComponent },
   { path: 'json-to-string', component: JsonToStringComponent },

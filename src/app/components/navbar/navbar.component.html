@@ -1,10 +1,9 @@
-<nav class="shadow-sm fixed left-0 h-full bg-white z-50 w-72 px-8 py-10">
+<nav class="shadow-sm fixed left-0 h-full bg-white z-50 w-72 px-8 pt-8">
     <div class="flex items-center">
         <img [src]="imageSrc" class="h-10" alt="pt-icon" srcset="">
-        <!-- <p class="font-semibold text-lg ml-4">pt-suppot</p> -->
         <p class="text-xs text-gray-600 ml-4">v2.0</p>
     </div>
-    <div class="container text-base mx-auto flex flex-col mt-12">
+    <div class="container text-base mx-auto flex flex-col mt-8 h-full overflow-y-auto">
         <div class="flex flex-col mb-1">
             <p class="text-xs text-gray-400 mb-1">Main</p>
             <div class="flex flex-col">
@@ -28,8 +27,8 @@
                 <a [ngClass]="{ activeLink: isActive('/monitoring-filter'), inactiveLink: !isActive('/monitoring-filter') }" routerLink="/monitoring-filter" class="w-full py-2 px-4 rounded-md">
                     Monitoring Filter
                 </a>
-                <a [ngClass]="{ activeLink: isActive('/line-filter'), inactiveLink: !isActive('/line-filter') }" routerLink="/line-filter" class="w-full py-2 px-4 rounded-md">
-                    Line Filter
+                <a [ngClass]="{ activeLink: isActive('/text-filter'), inactiveLink: !isActive('/text-filter') }" routerLink="/text-filter" class="w-full py-2 px-4 rounded-md">
+                    Text Filter
                 </a>
             </div>
         </div>
@@ -45,7 +44,6 @@
             <p class="text-xs text-gray-400 mb-1">Other</p>
             <div class="flex flex-col gap-2">
                 <a [ngClass]="{ activeLink: isActive('/summary'), inactiveLink: !isActive('/summary') }" routerLink="/summary" class="w-full py-2 px-4 rounded-md">Summary (Run Result)</a>
-                <!-- <a [ngClass]="{ activeLink: isActive('/screen-wake'), inactiveLink: !isActive('/screen-wake') }" routerLink="/screen-wake" class="w-full py-2 px-4 rounded-md">Screen Wake</a> -->
                 <a [ngClass]="{ activeLink: isActive('/json-to-string'), inactiveLink: !isActive('/json-to-string') }" routerLink="/json-to-string" class="w-full py-2 px-4 rounded-md">JSON to String</a>
             </div>
         </div>

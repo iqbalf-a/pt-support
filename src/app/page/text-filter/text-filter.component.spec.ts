@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LineFilterComponent } from './line-filter.component';
+import { TextFilterComponent } from './text-filter.component';
 
-describe('LineFilterComponent', () => {
-  let component: LineFilterComponent;
-  let fixture: ComponentFixture<LineFilterComponent>;
+describe('TextFilterComponent', () => {
+  let component: TextFilterComponent;
+  let fixture: ComponentFixture<TextFilterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LineFilterComponent]
+      imports: [TextFilterComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LineFilterComponent);
+    fixture = TestBed.createComponent(TextFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
