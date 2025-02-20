@@ -23,13 +23,13 @@ interface Filter {
 }
 
 @Component({
-  selector: 'app-line-filter',
+  selector: 'app-text-filter',
   standalone: true,
   imports: [FormsModule, CommonModule, FilterElementComponent],
-  templateUrl: './line-filter.component.html',
-  styleUrls: ['./line-filter.component.css']
+  templateUrl: './text-filter.component.html',
+  styleUrls: ['./text-filter.component.css']
 })
-export class LineFilterComponent {
+export class TextFilterComponent {
   inputText = '';
   outputText = '';
   filters: Filter[] = [];
