@@ -1,50 +1,56 @@
-<nav class="shadow-sm fixed left-0 h-full bg-white z-50 w-72 px-8 pt-8">
+<nav class="fixed left-0 z-50 h-full px-8 pt-8 bg-white shadow-sm w-72">
     <div class="flex items-center">
         <img [src]="imageSrc" class="h-10" alt="pt-icon" srcset="">
-        <p class="text-xs text-gray-600 ml-4">v2.0</p>
+        <p class="ml-4 text-xs text-gray-600">v2.0</p>
     </div>
-    <div class="container text-base mx-auto flex flex-col mt-8 h-full overflow-y-auto">
+    <div class="container flex flex-col h-full mx-auto mt-8 overflow-y-auto text-base">
         <div class="flex flex-col mb-1">
-            <p class="text-xs text-gray-400 mb-1">Main</p>
+            <p class="mb-1 text-xs text-gray-400">Main</p>
             <div class="flex flex-col">
-                <a [ngClass]="{ activeLink: isActive('/home'), inactiveLink: !isActive('/home') }" routerLink="/home" class="w-full py-2 px-4 my-1 rounded-md">
+                <a [ngClass]="{ activeLink: isActive('/home'), inactiveLink: !isActive('/home') }" routerLink="/home" class="w-full px-4 py-2 my-1 rounded-md">
                     Home
                 </a>
             </div>
         </div>
 
-        <div class="flex flex-col mb-1 mt-2">
-            <p class="text-xs text-gray-400 mb-1">Base64</p>
+        <div class="flex flex-col mt-2 mb-1">
+            <p class="mb-1 text-xs text-gray-400">Base64</p>
             <div class="flex flex-col gap-2">
-                <a [ngClass]="{ activeLink: isActive('/base64-encode'), inactiveLink: !isActive('/base64-encode') }" routerLink="/base64-encode" class="w-full py-2 px-4 rounded-md">Encode</a>
-                <a [ngClass]="{ activeLink: isActive('/base64-decode'), inactiveLink: !isActive('/base64-decode') }" routerLink="/base64-decode" class="w-full py-2 px-4 rounded-md">Decode</a>
-                <a [ngClass]="{ activeLink: isActive('/base64-encode-file'), inactiveLink: !isActive('/base64-encode-file') }" routerLink="/base64-encode-file" class="w-full py-2 px-4 rounded-md">Encode by File</a>
+                <a [ngClass]="{ activeLink: isActive('/base64-encode'), inactiveLink: !isActive('/base64-encode') }" routerLink="/base64-encode" class="w-full px-4 py-2 rounded-md">Encode</a>
+                <a [ngClass]="{ activeLink: isActive('/base64-decode'), inactiveLink: !isActive('/base64-decode') }" routerLink="/base64-decode" class="w-full px-4 py-2 rounded-md">Decode</a>
+                <a [ngClass]="{ activeLink: isActive('/base64-encode-file'), inactiveLink: !isActive('/base64-encode-file') }" routerLink="/base64-encode-file" class="w-full px-4 py-2 rounded-md">Encode by File</a>
             </div>
         </div>
-        <div class="flex flex-col mb-1 mt-2">
-            <p class="text-xs text-gray-400 mb-1">Filter</p>
+        <div class="flex flex-col mt-2 mb-1">
+            <p class="mb-1 text-xs text-gray-400">Filter</p>
             <div class="flex flex-col gap-2">
-                <a [ngClass]="{ activeLink: isActive('/monitoring-filter'), inactiveLink: !isActive('/monitoring-filter') }" routerLink="/monitoring-filter" class="w-full py-2 px-4 rounded-md">
+                <a [ngClass]="{ activeLink: isActive('/monitoring-filter'), inactiveLink: !isActive('/monitoring-filter') }" routerLink="/monitoring-filter" class="w-full px-4 py-2 rounded-md">
                     Monitoring Filter
                 </a>
-                <a [ngClass]="{ activeLink: isActive('/text-filter'), inactiveLink: !isActive('/text-filter') }" routerLink="/text-filter" class="w-full py-2 px-4 rounded-md">
+                <a [ngClass]="{ activeLink: isActive('/text-filter'), inactiveLink: !isActive('/text-filter') }" routerLink="/text-filter" class="w-full px-4 py-2 rounded-md">
                     Text Filter
                 </a>
             </div>
         </div>
-        <div class="flex flex-col mb-1 mt-2">
-            <p class="text-xs text-gray-400 mb-1">Indexing</p>
+        <div class="flex flex-col mt-2 mb-1">
+            <p class="mb-1 text-xs text-gray-400">Indexing</p>
             <div class="flex flex-col gap-2">
-                <a [ngClass]="{ activeLink: isActive('/indexing/snapshot-indexing'), inactiveLink: !isActive('/indexing/snapshot-indexing') }" routerLink="/indexing/snapshot-indexing" class="w-full py-2 px-4 rounded-md">
+                <a [ngClass]="{ activeLink: isActive('/indexing/snapshot-indexing'), inactiveLink: !isActive('/indexing/snapshot-indexing') }" routerLink="/indexing/snapshot-indexing" class="w-full px-4 py-2 rounded-md">
                     Snapshot Indexing
                 </a>
             </div>
         </div>
-        <div class="flex flex-col mb-1 mt-2">
-            <p class="text-xs text-gray-400 mb-1">Other</p>
+        <div class="flex flex-col mt-2 mb-1">
+            <p class="mb-1 text-xs text-gray-400">Other</p>
             <div class="flex flex-col gap-2">
-                <a [ngClass]="{ activeLink: isActive('/summary'), inactiveLink: !isActive('/summary') }" routerLink="/summary" class="w-full py-2 px-4 rounded-md">Summary (Run Result)</a>
-                <a [ngClass]="{ activeLink: isActive('/json-to-string'), inactiveLink: !isActive('/json-to-string') }" routerLink="/json-to-string" class="w-full py-2 px-4 rounded-md">JSON to String</a>
+                <a [ngClass]="{ activeLink: isActive('/summary'), inactiveLink: !isActive('/summary') }" routerLink="/summary" class="w-full px-4 py-2 rounded-md">Summary (Run Result)</a>
+                <a [ngClass]="{ activeLink: isActive('/json-to-string'), inactiveLink: !isActive('/json-to-string') }" routerLink="/json-to-string" class="w-full px-4 py-2 rounded-md">JSON to String</a>
+            </div>
+        </div>
+        <div class="flex flex-col mt-2 mb-1">
+            <p class="mb-1 text-xs text-gray-400">BPR</p>
+            <div class="flex flex-col gap-2">
+                <a [ngClass]="{ activeLink: isActive('/user-data-validator'), inactiveLink: !isActive('/user-data-validator') }" routerLink="/user-data-validator" class="w-full px-4 py-2 rounded-md">User Data Validator</a>
             </div>
         </div>
     </div>
