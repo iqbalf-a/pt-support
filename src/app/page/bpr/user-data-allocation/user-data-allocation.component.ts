@@ -14,13 +14,13 @@ interface DuplikatItem {
 }
 
 @Component({
-  selector: 'app-user-data-validator',
+  selector: 'app-user-data-allocation',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './user-data-validator.html',
-  styleUrl: './user-data-validator.css'
+  templateUrl: './user-data-allocation.component.html',
+  styleUrl: './user-data-allocation.component.css'
 })
-export class UserDataValidator {
+export class UserDataAllocationComponent {
 
   inputUser = '';
   inputData = '';
