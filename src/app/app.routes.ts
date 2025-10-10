@@ -13,7 +13,8 @@ import { NgModule } from '@angular/core';
 import { MonitoringFilterComponent } from './page/monitoring-filter/monitoring-filter.component';
 import { ScreenWakeComponent } from './components/screen-wake/screen-wake.component';
 import { JsonToStringComponent } from './page/json-to-string/json-to-string.component';
-import { UserDataValidator } from './page/bpr/user-data-validator/user-data-validator';
+import { UserDataAllocationComponent } from './page/bpr/user-data-allocation/user-data-allocation.component';
+import { TransactionIndexingComponent } from './page/indexing/transaction-indexing/transaction-indexing.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,9 +27,10 @@ export const routes: Routes = [
   { path: 'monitoring-filter', component: MonitoringFilterComponent },
   { path: 'text-filter', component: TextFilterComponent },
   { path: 'indexing/snapshot-indexing', component: SnapshotIndexingComponent },
+  { path: 'indexing/transaction-indexing', component: TransactionIndexingComponent },
   { path: 'screen-wake', component: ScreenWakeComponent },
   { path: 'json-to-string', component: JsonToStringComponent },
-  { path: 'user-data-validator', component: UserDataValidator },
+  { path: 'user-data-allocation', component: UserDataAllocationComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }  // Pastikan rute wildcard ini ada di akhir

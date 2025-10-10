@@ -68,7 +68,7 @@
                     <div class="flex items-center space-x-2">
                         <input type="text" class="flex-1 p-2 border rounded-md" #dataInput />
                         <button class="px-4 py-2 text-sm font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
-                            (click)="menuOutputText = 'Pemilik: ' + cariPemilik(dataInput.value)">
+                            (click)="menuOutputText = 'Pemilik data ' + dataInput.value + ' : ' + cariPemilik(dataInput.value)">
                             Cari
                         </button>
                     </div>
