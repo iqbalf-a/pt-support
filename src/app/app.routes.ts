@@ -15,6 +15,7 @@ import { ScreenWakeComponent } from './components/screen-wake/screen-wake.compon
 import { JsonToStringComponent } from './page/json-to-string/json-to-string.component';
 import { UserDataAllocationComponent } from './page/bpr/user-data-allocation/user-data-allocation.component';
 import { TransactionIndexingComponent } from './page/indexing/transaction-indexing/transaction-indexing.component';
+import { OcpMetricsComponent } from './page/ocp-metrics/ocp-metrics.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -31,6 +32,7 @@ export const routes: Routes = [
   { path: 'screen-wake', component: ScreenWakeComponent },
   { path: 'json-to-string', component: JsonToStringComponent },
   { path: 'user-data-allocation', component: UserDataAllocationComponent},
+  { path: 'ocp-metrics', component: OcpMetricsComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }  // Pastikan rute wildcard ini ada di akhir
