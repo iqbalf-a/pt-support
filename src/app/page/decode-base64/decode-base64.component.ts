@@ -20,8 +20,6 @@ export class DecodeBase64Component {
   }
 
   decode() {
-    console.log(this.isChecked);
-
     let result: string = '';
     if (this.isChecked) {
       let text: string[];
@@ -37,7 +35,6 @@ export class DecodeBase64Component {
       text = this.inputText;
       result = atob(text);
     }
-    // this.outputText = btoa(this.inputText);
     this.outputText = result;
   }
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
@@ -9,26 +9,29 @@ import { Clipboard } from '@angular/cdk/clipboard';
   templateUrl: './encode-base64-file.component.html',
   styleUrl: './encode-base64-file.component.css'
 })
-export class EncodeBase64FileComponent {
+export class EncodeBase64FileComponent implements OnDestroy {
   outputText!: string;
   fileToEncode!: File;
   encodedBase64: string | null = null;
   encodedBase64Value: string | null = null;
-  showAlert: boolean = false; // New variable to control alert visibility
+  showAlert: boolean = false;
+  private alertTimeout: ReturnType<typeof setTimeout> | null = null;
 
   constructor(private clipboard: Clipboard) { }
 
-  onFileChange(event: any) {
-    if (event.target.files && event.target.files.length) {
-      const file: File = event.target.files[0];
+  onFileChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length) {
+      const file: File = input.files[0];
       const reader = new FileReader();
 
-      reader.onload = (e: any) => {
+      reader.onload = (e: ProgressEvent<FileReader>) => {
+        const result = e.target?.result as string;
         this.fileToEncode = file;
-        this.encodedBase64 = e.target.result;
+        this.encodedBase64 = result;
 
-        const base64Index = e.target.result.indexOf("base64,") + "base64,".length;
-        this.encodedBase64Value = e.target.result.substring(base64Index);
+        const base64Index = result.indexOf("base64,") + "base64,".length;
+        this.encodedBase64Value = result.substring(base64Index);
       };
 
       reader.readAsDataURL(file);
@@ -38,20 +41,26 @@ export class EncodeBase64FileComponent {
   copyEncodedBase64ToClipboard() {
     if (this.encodedBase64) {
       this.clipboard.copy(this.encodedBase64);
-      this.showAlert = true; // Show alert when copied
-      setTimeout(() => {
-        this.showAlert = false; // Hide alert after 3 seconds
-      }, 3000);
+      this.triggerAlert();
     }
   }
 
   copyEncodedBase64ValueToClipboard() {
     if (this.encodedBase64Value) {
       this.clipboard.copy(this.encodedBase64Value);
-      this.showAlert = true; // Show alert when copied
-      setTimeout(() => {
-        this.showAlert = false; // Hide alert after 3 seconds
-      }, 3000);
+      this.triggerAlert();
     }
+  }
+
+  private triggerAlert() {
+    this.showAlert = true;
+    if (this.alertTimeout) clearTimeout(this.alertTimeout);
+    this.alertTimeout = setTimeout(() => {
+      this.showAlert = false;
+    }, 3000);
+  }
+
+  ngOnDestroy() {
+    if (this.alertTimeout) clearTimeout(this.alertTimeout);
   }
 }

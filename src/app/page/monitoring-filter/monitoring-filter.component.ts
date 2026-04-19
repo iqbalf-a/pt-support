@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InputTimeComponent } from '../../components/input-time/input-time.component';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-monitoring-filter',
   standalone: true,
-  imports: [FormsModule, InputTimeComponent, CommonModule, RouterOutlet, RouterLink],
+  imports: [FormsModule, InputTimeComponent, CommonModule, RouterLink],
   templateUrl: './monitoring-filter.component.html',
   styleUrl: './monitoring-filter.component.css'
 })
