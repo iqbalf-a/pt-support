@@ -3,9 +3,8 @@
     <div class="flex justify-center items-center">
         <img [src]="randomSticker" alt="Sticker">
     </div>
-    <div class="relative">
-        <button id="btn-click-me" [ngStyle]="{'top.px': buttonTop, 'left.px': buttonLeft}" class="absolute px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-sm" (mouseenter)="moveButton()" (click)="clicked()">
-            Click me!
-        </button>
-    </div>
 </div>
+
+<button id="btn-click-me" [ngStyle]="{'top.px': buttonTop, 'left.px': buttonLeft}" class="fixed z-40 px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-sm" (mouseenter)="moveButton()" (click)="clicked()">
+    Click me!
+</button>
