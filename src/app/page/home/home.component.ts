@@ -36,9 +36,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.requestWakeLock();
     }
 
-    // sticker
     this.randomSticker =
       this.stickers[Math.floor(Math.random() * this.stickers.length)];
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.moveButton();
+    }
   }
 
   ngOnDestroy(): void {
@@ -81,22 +84,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   moveButton() {
-    const button = document.querySelector('button') as HTMLElement;
-    const parent = button.parentElement as HTMLElement;
+    if (!isPlatformBrowser(this.platformId)) return;
+    const button = document.getElementById('btn-click-me') as HTMLElement;
+    const buttonHeight = button?.clientHeight || 36;
+    const buttonWidth = button?.clientWidth || 80;
 
-    const parentHeight = parent.clientHeight;
-    const parentWidth = parent.clientWidth;
-    const buttonHeight = button.clientHeight;
-    const buttonWidth = button.clientWidth;
-
-    const verticalRange = parentHeight - buttonHeight;
-    const horizontalRange = parentWidth - buttonWidth;
-
-    const maxVerticalMovement = verticalRange * 0.8;
-    const maxHorizontalMovement = horizontalRange * 0.8;
-
-    this.buttonTop = Math.min(Math.random() * maxVerticalMovement, verticalRange);
-    this.buttonLeft = Math.min(Math.random() * maxHorizontalMovement, horizontalRange);
+    this.buttonTop = Math.random() * (window.innerHeight - buttonHeight);
+    this.buttonLeft = Math.random() * (window.innerWidth - buttonWidth);
   }
 
   clicked() {
