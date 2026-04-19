@@ -28,7 +28,6 @@ export class FilterElementComponent {
   }
 
   private emitFilterChange() {
-    console.log('Filter Changed:', this.filter);
     this.filterChanged.emit(this.filter);
   }
 
