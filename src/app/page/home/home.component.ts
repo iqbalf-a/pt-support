@@ -14,6 +14,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   buttonTop: number = 0;
   buttonLeft: number = 0;
 
+  // sticker
+   stickers: string[] = [
+    'assets/pentol-stiker1.gif',
+    'assets/pentol-stiker2.gif',
+    'assets/pentol-stiker3.gif',
+    'assets/pentol-stiker4.gif',
+    'assets/pentol-stiker5.gif',
+  ];
+  randomSticker: string = '';
+
+
   private wakeLock: WakeLockSentinel | null = null;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
@@ -24,6 +35,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       document.addEventListener('visibilitychange', this.handleVisibilityChange);
       this.requestWakeLock();
     }
+
+    // sticker
+    this.randomSticker =
+      this.stickers[Math.floor(Math.random() * this.stickers.length)];
   }
 
   ngOnDestroy(): void {

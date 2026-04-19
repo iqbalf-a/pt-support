@@ -21,8 +21,6 @@ export class EncodeBase64Component {
   }
 
   encode() {
-    console.log(this.isChecked);
-
     let result: string = '';
     if (this.isChecked) {
       let text: string[];
@@ -38,7 +36,6 @@ export class EncodeBase64Component {
       text = this.inputText;
       result = btoa(text);
     }
-    // this.outputText = btoa(this.inputText);
     this.outputText = result;
   }
 

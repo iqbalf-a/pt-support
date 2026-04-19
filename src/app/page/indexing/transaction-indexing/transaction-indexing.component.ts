@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { CommonModule } from '@angular/common';
@@ -10,23 +10,29 @@ import { CommonModule } from '@angular/common';
   templateUrl: './transaction-indexing.component.html',
   styleUrl: './transaction-indexing.component.css'
 })
-export class TransactionIndexingComponent {
+export class TransactionIndexingComponent implements OnDestroy {
 
   inputText: string = '';
   outputText: string = '';
   indexStart: number = 1;
   showAlert: boolean = false;
+  private alertTimeout: ReturnType<typeof setTimeout> | null = null;
 
   constructor(private clipboard: Clipboard) { }
 
   copyOutputTextToClipboard() {
     if (this.outputText) {
       this.clipboard.copy(this.outputText);
-      this.showAlert = true; // Show alert when copied
-      setTimeout(() => {
-        this.showAlert = false; // Hide alert after 3 seconds
+      this.showAlert = true;
+      if (this.alertTimeout) clearTimeout(this.alertTimeout);
+      this.alertTimeout = setTimeout(() => {
+        this.showAlert = false;
       }, 3000);
     }
+  }
+
+  ngOnDestroy() {
+    if (this.alertTimeout) clearTimeout(this.alertTimeout);
   }
 
   process() {

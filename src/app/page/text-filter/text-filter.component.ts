@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FilterElementComponent } from '../../components/filter-element/filter-element.component';
@@ -72,7 +72,6 @@ export class TextFilterComponent {
 
   updateFilter(index: number, filterData: Filter) {
     this.filters[index] = filterData;
-    console.log('Filter updated at index:', index, filterData);
   }
 
   processFilter() {
